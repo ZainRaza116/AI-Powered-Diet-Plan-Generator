@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/meal_suggestion', methods=['POST'])
 def meal_suggestion():
-    openai.api_key = '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'
+    openai.api_key = 'xxxxx'
 
     age = request.json.get('age')
     height = request.json.get('height')
@@ -46,7 +46,7 @@ def extract_options(data, meal_title):
     start_index = data.find(meal_title) + len(meal_title)
     end_index = data.find("\n\n", start_index) if data.find("\n\n", start_index) != -1 else len(data)
     meal_text = data[start_index:end_index].strip()
-    options = meal_text.split("\n- ")[1:]  # Split meal options and remove the first element which is the title itself
+    options = meal_text.split("\n- ")[1:] 
     return options
 
 
